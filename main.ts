@@ -9,15 +9,19 @@ const findWordsLinearCost = (words: Array<string>, prefix: string): Array<string
 // alt. solution
 const findWordsNotLinearCost = (words: Array<string>, prefix: string, index: number = 1): Array<string> => {
     if (index <= prefix.length) {
-        const prefixSubstring = prefix.substring(0, index)
-        const result = words.sort().filter((word) => word.startsWith(prefix))
+        const altPrefix = prefix.substring(0, index)
+        const result = words.sort().filter((word) => word.startsWith(altPrefix))
         index++
-        return findWordsNotLinearCost(result, prefixSubstring, index)
+        return findWordsNotLinearCost(result, prefix, index)
     }
     return words.sort().filter((word) => word.startsWith(prefix))
 }
 
 const foundWords = findWordsNotLinearCost(words, prefix)
 
+console.time('[findWordsLinearCost]')
 console.log('[findWordsLinearCost]', findWordsLinearCost(words, prefix))
+console.timeEnd('[findWordsLinearCost]')
+console.time('[findWordsNotLinearCost]')
 console.log('[findWordsNotLinearCost]', findWordsNotLinearCost(words, prefix))
+console.timeEnd('[findWordsNotLinearCost]')
