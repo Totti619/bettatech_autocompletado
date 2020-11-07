@@ -5,7 +5,7 @@ Este script es una solución al problema de *Autocompletado* propuesto por **[Be
 - Deno
 
 ### Como instalar:
-`git clone `
+`git clone https://github.com/Totti619/bettatech_autocompletado.git`
 
 ### Como ejecutarlo:
 `deno run main.ts`
